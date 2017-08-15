@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/lib/material.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="/lib/material.min.js"></script>
+    <title>Login app</title>
+</head>
+<body style="background: url(/images/bg.jpg); background-size: cover;">
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+            <!-- Title -->
+            <span class="mdl-layout-title">Login App</span>
+            <!-- Add spacer, to align navigation to the right -->
+            <div class="mdl-layout-spacer"></div>
+            <!-- Navigation. We hide it in small screens. -->
+            <nav class="mdl-navigation mdl-layout--large-screen-only">
+                
+                 {{#if user}}
+                    <a class="mdl-navigation__link" href="/">Dashboard</a>
+                    <a class="mdl-navigation__link" href="/users/logout">Log out</a>
+                 {{else}}
+                    <a class="mdl-navigation__link" href="/users/login">Log in</a>
+                    <a class="mdl-navigation__link" href="/users/register">Register</a>
+                {{/if}}
+                
+            </nav>
+        </div>
+    </header>
+    <div class="mdl-layout__drawer">
+        <span class="mdl-layout-title">Login App</span>
+        <nav class="mdl-navigation">
+            {{#if user}}
+                <a class="mdl-navigation__link" href="/">Dashboard</a>
+                <a class="mdl-navigation__link" href="/users/logout">Log out</a>
+            {{else}}
+                <a class="mdl-navigation__link" href="/users/login">Log in</a>
+                <a class="mdl-navigation__link" href="/users/register">Register</a>
+            {{/if}}
+            
+        </nav>
+    </div>
+    <main class="mdl-layout__content">
+        <div class="page-content" style="padding: 10px; font-size: 20px;">
+            <!-- Your content goes here -->
+
+{{#if success_msg}}
+<span class="mdl-chip" onclick="this.style.display = 'none'">
+                <span class="mdl-chip__text">{{success_msg}}</span>
+</span>
+{{/if}}
+
+{{#if error_msg}}
+<span class="mdl-chip" onclick="this.style.display = 'none'">
+                <span class="mdl-chip__text">{{error_msg}}</span>
+</span>
+{{/if}}
+
+{{#if error}}
+<span class="mdl-chip" onclick="this.style.display = 'none'">
+                <span class="mdl-chip__text">{{error}}</span>
+</span>
+{{/if}}
+<br>
+
+            {{{ body }}}
+        </div>
+    </main>
+    <footer class="mdl-mini-footer">
+        <div class="mdl-mini-footer__left-section">
+            <div class="mdl-logo">login app by iamjesse98</div>
+            <ul class="mdl-mini-footer__link-list">
+                <li><a href="#">Help</a></li>
+                <li><a href="#">Privacy & Terms</a></li>
+            </ul>
+        </div>
+    </footer>
+
+</div>
+
+</body>
+</html>

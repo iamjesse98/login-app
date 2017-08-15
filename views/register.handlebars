@@ -1,0 +1,39 @@
+<div class="mdl-card mdl-shadow--2dp" style="width: 100%; max-width: 330px; margin-left: auto; margin-right: auto;">
+    <div class="mdl-card__title">
+        <h2 class="mdl-card__title-text">Register</h2>
+    </div>
+    {{#if errors}}
+        {{#each errors}}
+            <span class="mdl-chip" onclick="this.style.display = 'none'">
+                <span class="mdl-chip__text">{{msg}}</span>
+            </span>
+        {{/each}}
+    {{/if}}
+    <div class="mdl-card__supporting-text">
+        <form action="/users/register" method="post">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input class="mdl-textfield__input" type="text" id="name" name="name">
+                <label class="mdl-textfield__label" for="name">name</label>
+            </div><br>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input class="mdl-textfield__input" type="text" id="uname" name="username">
+                <label class="mdl-textfield__label" for="uname">username</label>
+            </div><br>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input class="mdl-textfield__input" type="email" id="email" name="email">
+                <label class="mdl-textfield__label" for="email">email</label>
+            </div><br>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input class="mdl-textfield__input" type="password" id="pass" name="password">
+                <label class="mdl-textfield__label" for="pass">password</label>
+            </div><br>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input class="mdl-textfield__input" type="password" id="pass1" name="password1">
+                <label class="mdl-textfield__label" for="pass1">confirm password</label>
+            </div><br>
+            <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                Register
+            </button>
+        </form>
+    </div>
+</div>
